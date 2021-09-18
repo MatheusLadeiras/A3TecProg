@@ -6,10 +6,10 @@ Pag 9
 struct {
 char nome[30]
 int ano
-float gastos (baseado nos gastos do mês)
+float gastos (baseado nos gastos do mÃªs)
 } Cliente;
 
-Funções: 
+FunÃ§Ãµes: 
 Adicionar cliente X
 Remover Cliente X
 Atualizar os gastos de um cliente X
@@ -50,11 +50,11 @@ int main() {
 	
 	cliente = (struct Clientes *)malloc(sizeof(tLista));
 
-	strcpy(cliente[0].nome, "José");
+	strcpy(cliente[0].nome, "JosÃ©");
 	cliente[0].ano = 1998;
 	cliente[0].gastos = 17.43;
 
-	strcpy(cliente[1].nome, "João");
+	strcpy(cliente[1].nome, "JoÃ£o");
 	cliente[1].ano = 1984;
 	cliente[1].gastos = 78.34;
 
@@ -63,7 +63,7 @@ int main() {
 	cliente[2].gastos = 26.92;
 	
 	for(o=3; o <=9 + x; o++) {
-    strcpy(cliente[o].nome, "Não definido");
+    strcpy(cliente[o].nome, "NÃ£o definido");
     cliente[o].ano = 0;
     cliente[o].gastos = 0.00;
     }
@@ -80,9 +80,9 @@ void menu() {
 			printf("3 para atualizar os gastos de um cliente\n");
 			printf("4 para zerar os gastos dos clientes\n");
 			printf("5 para apontar o cliente com maiores gastos\n");
-			printf("6 para checar os gastos de um cliente específico\n");
+			printf("6 para checar os gastos de um cliente especÃ­fico\n");
 			printf("7 para Sair\n");
-			// printf("8 para Aumentar o número de clientes!\n");
+			// printf("8 para Aumentar o nÃºmero de clientes!\n");
 			printf("Selecione a alternativa.   "); 
 			scanf("%i", &i );
 			printf("======================================================================================================\n");
@@ -107,8 +107,8 @@ void menu() {
             		} else {
             			tLista = tLista+10;
 						x = x+10;
-						for(o=10; o <=9 + x; o++) {
-    						strcpy(cliente[o].nome, "Não definido");
+						for(o=10 + x; o <=9 + x; o++) {
+    						strcpy(cliente[o].nome, "NÃ£o definido");
     						cliente[o].ano = 0;
     						cliente[o].gastos = 0.00;
 						}
@@ -131,21 +131,21 @@ void menu() {
     			break;
     			case 2:
     				if (novoCliente < 1) {
-						printf("Não há clientes para serem deletados, retornando ao menu\n");
+						printf("NÃ£o hÃ¡ clientes para serem deletados, retornando ao menu\n");
 						printf("======================================================================================================\n");
 					} else {
 						printf("Escolha o cliente a ser removido: \n");
 	    				listagemIndexada();
 						
-	    				printf("Insira o índice do cliente:   ");
+	    				printf("Insira o Ã­ndice do cliente:   ");
 	    				scanf("%i%*c", &selecionar);
 	    				
 	    				if(selecionar <= 0) {
-	    					printf("Houve um erro na seleção de cliente, retornando ao menu\n");
+	    					printf("Houve um erro na seleÃ§Ã£o de cliente, retornando ao menu\n");
 						} else if(selecionar >= 11 + x) {
-	    					printf("Houve um erro na seleção de cliente, retornando ao menu\n");
+	    					printf("Houve um erro na seleÃ§Ã£o de cliente, retornando ao menu\n");
 	    				} else if(novoCliente < selecionar) {
-	    					printf("Houve um erro na seleção de cliente, retornando ao menu\n");
+	    					printf("Houve um erro na seleÃ§Ã£o de cliente, retornando ao menu\n");
 						} else {
 							printf("Deletando...\n");
 							for (c = selecionar - 1; c < 8 + x; c++ ) {
@@ -161,10 +161,10 @@ void menu() {
 					printf("Escolha o cliente a ter seus gastos atualizados: \n");
 	    				listagemIndexada();
 						
-	    				printf("Insira o índice do cliente:   ");
+	    				printf("Insira o Ã­ndice do cliente:   ");
 	    				scanf("%i%*c", &selecionar);
 	    				selecionar = selecionar - 1;
-	    				printf("Insira o novo valor que será adicionado:   ");
+	    				printf("Insira o novo valor que serÃ¡ adicionado:   ");
 	    				scanf("%2f%*c", &cliente[selecionar].gastos);
 	    				
 	    				listagemIndexada();
@@ -186,14 +186,14 @@ void menu() {
 					       		nomeMaior = cliente[a].nome;
 						   }
 					    }
-					printf ("O cliente com maiores gastos é %s, ele gastou um total de %.2f \n", nomeMaior, maior); 
+					printf ("O cliente com maiores gastos Ã© %s, ele gastou um total de %.2f \n", nomeMaior, maior); 
 					printf("======================================================================================================\n");
 				break;
 				case 6:
 					printf("Escolha um cliente para ver suas compras: \n");
 	    				listagemIndexadaSemGastos();
 						
-	    				printf("Insira o índice do cliente:   ");
+	    				printf("Insira o Ã­ndice do cliente:   ");
 	    				scanf("%i%*c", &selecionar);
 	    				selecionar = selecionar - 1;
 	    				printf("======================================================================================================\n");
@@ -204,12 +204,12 @@ void menu() {
 					printf("Fechando o sistema!\n");
 				break;
 				case 8:
-					printf("Função desativada, apenas para testes\n");
+					printf("FunÃ§Ã£o desativada, apenas para testes\n");
 					printf("======================================================================================================\n");
 					/*/tLista = tLista+10;
 					x = x+10;
 					for(o=10; o <=9 + x; o++) {
-    					strcpy(cliente[o].nome, "Não definido");
+    					strcpy(cliente[o].nome, "NÃ£o definido");
     					cliente[o].ano = 0;
     					cliente[o].gastos = 0.00;
     				} /*/
